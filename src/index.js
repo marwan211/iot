@@ -1,4 +1,3 @@
-
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
@@ -10,7 +9,8 @@ const server = http.createServer(app);
 
 // Enable CORS for Socket.IO
 app.use(cors());
-const port =process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
+
 // Start the server
 server.listen(port, () => {
   console.log(`Server listening on port ${port}`);
@@ -34,7 +34,10 @@ io.on('connection', (socket) => {
 
     // Log the updated brightness value
     console.log('Brightness updated:', brightness);
-    socket.emit('brightness', brightness); 
+
+    // Emit the updated brightness value to all connected clients
+    io.emit('brightness', brightness);
+
     // You can add your code here to control the Arduino LED based on the brightness value
     // For example, you can use the 'johnny-five' library to communicate with the Arduino over a serial port
     // to adjust the LED brightness accordingly
