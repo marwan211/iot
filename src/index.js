@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
 
     // Log the updated brightness value
     console.log('Brightness updated:', brightness);
-
+    socket.emit('brightness', brightness); 
     // You can add your code here to control the Arduino LED based on the brightness value
     // For example, you can use the 'johnny-five' library to communicate with the Arduino over a serial port
     // to adjust the LED brightness accordingly
