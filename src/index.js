@@ -11,13 +11,13 @@ const server = app.listen(3000, () => {
 
 // Initialize Socket.io
 const io = SocketIO(server);
-
+let brightness=0
 // Handle incoming WebSocket connections
 io.on('connection', (socket) => {
   console.log('New WebSocket connection');
 
   // Get the current LED brightness and send it to the client
-  socket.emit('brightness', 0); // Assuming initial brightness is 0
+  socket.emit('brightness', brightness); // Assuming initial brightness is 0
 
   // Listen for changes in brightness from the client
   socket.on('brightness', (brightness) => {
