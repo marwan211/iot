@@ -6,9 +6,10 @@ const { Server } = require('socket.io');
 // Initialize the Express app
 const app = express();
 const server = http.createServer(app);
-server.use(cors());
-// Enable CORS for Socket.IO
-app.use(cors());
+
+// Enable CORS for the entire server
+server.on('request', cors());
+
 const port = process.env.PORT || 5000;
 
 // Start the server
