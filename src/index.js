@@ -5,6 +5,12 @@ const { Server } = require('socket.io');
 
 // Initialize the Express app
 const app = express();
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 const server = http.createServer(app);
 
 // Enable CORS for the entire server
