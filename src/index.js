@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 
 const app = express();
-app.listen(10000, '0.0.0.0');
+app.listen(3000, '0.0.0.0');
 app.use(cors({
   origin: '*'
 }));
