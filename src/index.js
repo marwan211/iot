@@ -4,9 +4,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 
 const app = express();
-app.listen('9000','0.0.0.0',()=>{
-  console.log("server is listening on 9000 port");
-})
+app.listen(10000, '0.0.0.0');
 app.use(cors({
   origin: '*'
 }));
