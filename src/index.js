@@ -14,9 +14,14 @@ server.listen(port, () => {
 });
 const io = new Server(server, {
   cors: {
-    origin: '*',
-  }
-});
+   origin: "*",
+   methods: ["GET", "POST"],
+   transports: ["websocket", "polling"],
+   credentials: true,
+  },
+   allowEIO3: true,
+  });
+
 let brightness = 0;
 io.on('connection', (socket) => {
   console.log('New WebSocket connection');
