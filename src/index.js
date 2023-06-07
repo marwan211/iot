@@ -16,7 +16,14 @@ const io = new Server(server, {
    
    credentials: true,
   },
-  transports: ["websocket", "polling"],
+  transports: [
+    'websocket', 
+    'flashsocket', 
+    'htmlfile', 
+    'xhr-polling', 
+    'jsonp-polling', 
+    'polling'
+  ],
    allowEIO3: true,
    serveClient: true,
   });
