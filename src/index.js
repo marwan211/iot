@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 
 const app = express();
-app.listen(3000, '0.0.0.0');
+
 app.use(cors({
   origin: '*'
 }));
@@ -21,6 +21,7 @@ const io = new Server(server, {
    credentials: true,
   },
    allowEIO3: true,
+   serveClient: true,
   });
 
 let brightness = 0;
