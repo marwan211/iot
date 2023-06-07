@@ -5,9 +5,7 @@ const { Server } = require('socket.io');
 
 const app = express();
 
-app.use(cors({
-  origin: '*'
-}));
+
 const server = http.createServer(app);
 const port = process.env.PORT || 5000;
 server.listen(port, () => {
