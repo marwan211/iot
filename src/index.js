@@ -8,9 +8,7 @@ const app = express();
 
 const server = http.createServer(app);
 const port = process.env.PORT || 5000;
-server.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+
 const io = new Server(server, {
   cors: {
    origin: "*",
@@ -32,4 +30,7 @@ io.on('connection', (socket) => {
     console.log('Brightness updated:', brightness);
     io.emit('brightness', brightness);
   });
+});
+server.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
