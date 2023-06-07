@@ -24,7 +24,7 @@ const io = new Server(server, {
     'jsonp-polling', 
     'polling'
   ],
-   allowEIO3: true,
+   allowEIO3: false,
    serveClient: true,
   });
 
